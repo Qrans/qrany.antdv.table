@@ -1,0 +1,24 @@
+.ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.value-image {
+  display: flex;
+  margin: 0 -5px;
+}
+
+.value-image-link {
+  display: block;
+  width: 50px;
+  margin: 0 5px;
+}
+
+.value-image-img {
+  display: block;
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}

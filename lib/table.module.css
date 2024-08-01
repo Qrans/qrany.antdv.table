@@ -1,0 +1,8 @@
+.pro-table :global(.ant-table th),
+.pro-table :global(.ant-table td) {
+  white-space: nowrap;
+}
+
+.action {
+  margin-bottom: 24px;
+}
