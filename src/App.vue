@@ -88,10 +88,11 @@ export default {
     createDict: (dict) => () => new Promise((resolve) => setTimeout(() => resolve(dict.map((x) => ({ value: x[0], label: x[1] }))), 1000)),
     async request(q, f, s) {
       console.log(q, f, s);
+      const n = (q.current - 1) * q.pageSize;
       await new Promise((resolve) => setTimeout(resolve, 500));
       return {
         data: Array.from({ length: 10 }, (_, i) => ({
-          id: i,
+          id: n + i,
           text: `Text ${i} 啊介绍了肯德基阿拉山口到家啦可是建档立卡解放了卡就是六块腹肌阿拉山口大家阿莱克斯金德拉克绝世独立看见阿福`,
           input: `Input ${i} 啊介绍了肯德基阿拉山口到家啦可是建档立卡解放了卡就是六块腹肌阿拉山口大家阿莱克斯金德拉克绝世独立看见阿福`,
           number: Math.random() * 1e9,
