@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <QTable :table="table" :columns="columns" :request="request">
+    <QTable :table="table" :columns="columns" :request="request" auto-select-all>
       <template #action>
         <Button type="primary">按钮 1</Button>
         <Button>按钮 2</Button>
@@ -17,11 +17,11 @@
 
       <template #body="{ column }">
         <template v-if="column.key === 'action'">
-          <TableAction>
+          <QAction>
             <a>0</a>
             <a>1</a>
             <a>2</a>
-          </TableAction>
+          </QAction>
         </template>
       </template>
     </QTable>
@@ -33,7 +33,7 @@ import { Button, Card, Tabs } from "ant-design-vue";
 import "ant-design-vue/es/button/style/css";
 import "ant-design-vue/es/card/style/css";
 // import "ant-design-vue/es/grid/style/css";
-import { createTable, QTable, TableAction } from "/lib";
+import { createTable, QAction, QTable } from "/lib";
 
 export default {
   name: "App",
@@ -41,9 +41,9 @@ export default {
     Button,
     // Col,
     Card,
+    QAction,
     QTable,
     // Row,
-    TableAction,
     Tabs,
     TabPane: Tabs.TabPane,
   },
