@@ -30,9 +30,9 @@
 
 <script>
 import { Button, Card, Tabs } from "ant-design-vue";
-import "ant-design-vue/es/button/style/css";
-import "ant-design-vue/es/card/style/css";
-// import "ant-design-vue/es/grid/style/css";
+import "ant-design-vue/es/button/style/index";
+import "ant-design-vue/es/card/style/index";
+// import "ant-design-vue/es/grid/style/index";
 import { createTable, QAction, QTable } from "/lib";
 
 export default {
