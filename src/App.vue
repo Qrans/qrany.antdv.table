@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <QTable :table="table" :columns="columns" :request="request" auto-select-all>
+    <QTable :table="table" :columns="columns" :request="request" auto-select-all :select-props="selectProps">
       <template #action>
         <Button type="primary">按钮 1</Button>
         <Button>按钮 2</Button>
@@ -105,6 +105,10 @@ export default {
         })),
         total: 20,
       };
+    },
+
+    selectProps(record) {
+      return { disabled: record.id % 2 === 0 };
     },
 
     onChange(v = "") {
