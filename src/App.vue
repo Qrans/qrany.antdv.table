@@ -108,7 +108,7 @@ export default {
     },
 
     selectProps(record) {
-      return { disabled: record.id % 2 === 0 };
+      return { props: { disabled: record.id % 2 === 0 } };
     },
 
     onChange(v = "") {
