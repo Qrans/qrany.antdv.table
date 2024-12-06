@@ -1,49 +1,42 @@
 <template>
-  <Card>
-    <QTable :table="table" :columns="columns" :request="request" auto-select-all :select-props="selectProps">
-      <template #action>
-        <Button type="primary">按钮 1</Button>
-        <Button>按钮 2</Button>
-      </template>
+  <QTable :table="table" :columns="columns" :request="request" auto-select-all :select-props="selectProps">
+    <template #action>
+      <Button type="primary">按钮 1</Button>
+      <Button>按钮 2</Button>
+    </template>
 
-      <template #layout="{ Component, vnodes }">
-        <Tabs :active-key="+table.form.select.join(',')" @change="onChange">
-          <TabPane :key="0" tab="ling" />
-          <TabPane :key="1" tab="yi" />
-        </Tabs>
+    <template #layout="{ Component }">
+      <Tabs @change="onChange">
+        <TabPane :key="0" tab="ling" />
+        <TabPane :key="1" tab="yi" />
+      </Tabs>
 
-        <component :is="Component" :vnodes="vnodes" />
-      </template>
+      <component :is="Component" />
+    </template>
 
-      <template #body="{ column }">
-        <template v-if="column.key === 'action'">
-          <QAction>
-            <a>0</a>
-            <a>1</a>
-            <a>2</a>
-          </QAction>
-        </template>
+    <template #body="{ column }">
+      <template v-if="column.key === 'action'">
+        <QAction>
+          <a>0</a>
+          <a>1</a>
+          <a>2</a>
+        </QAction>
       </template>
-    </QTable>
-  </Card>
+    </template>
+  </QTable>
 </template>
 
 <script>
-import { Button, Card, Tabs } from "ant-design-vue";
+import { Button, Tabs } from "ant-design-vue";
 import "ant-design-vue/es/button/style/index";
-import "ant-design-vue/es/card/style/index";
-// import "ant-design-vue/es/grid/style/index";
-import { createTable, QAction, QTable } from "/lib";
+import { createTable, QAction, QTable } from "../package/index";
 
 export default {
   name: "App",
   components: {
     Button,
-    // Col,
-    Card,
     QAction,
     QTable,
-    // Row,
     Tabs,
     TabPane: Tabs.TabPane,
   },
@@ -112,8 +105,7 @@ export default {
     },
 
     onChange(v = "") {
-      this.table.form.select = [v];
-      this.table.query(1);
+      this.table.query(1, { select: [v] });
     },
   },
 
